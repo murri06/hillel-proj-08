@@ -1,0 +1,12 @@
+ version: '1.0'
+
+ services:
+   php-container:
+     build:
+       context: .
+       dockerfile: Dockerfile
+     command: php -S 0.0.0.0:80
+     volumes:
+       - ".:/var/www/html"
+     ports:
+       - "80:80"
