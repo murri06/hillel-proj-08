@@ -1,0 +1,21 @@
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+form {
+    max-width: 25vw;
+
+}
+
+form > label, input {
+    margin-bottom: 10px;
+}
