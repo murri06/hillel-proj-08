@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
             break;
         case 'Rectangle':
             $figure = new Rectangle($_POST['side1'], $_POST['side2'], $_POST['color']);
-
+            break;
     }
 }
 ?>
@@ -29,11 +29,11 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <div class="form-container">
             <form method="post">
-                <h3>Форма для створення квадрату</h3>
+                <h3>Створення квадрату</h3>
 
                 <label>
                     Введіть розмір сторони(у px):
-                    <input required type="number" name="side">
+                    <input required type="number" min="1" name="side">
                 </label><br>
 
                 <label>
@@ -48,11 +48,11 @@ if (isset($_POST['submit'])) {
 
         <div>
             <form method="post">
-                <h3>Форма для створення кола</h3>
+                <h3>Створення кола</h3>
 
                 <label>
                     Введіть радіус кола(у px):
-                    <input required type="number" name="radius">
+                    <input required type="number" min="1" name="radius">
                 </label><br>
 
                 <label>
@@ -67,16 +67,16 @@ if (isset($_POST['submit'])) {
 
         <div>
             <form method="post">
-                <h3>Форма для створення прямокутника</h3>
+                <h3>Створення прямокутника</h3>
 
                 <label>
                     Введіть розмір першої сторони(у px):
-                    <input required type="number" name="side1">
+                    <input required type="number" min="1" name="side1">
                 </label><br>
 
                 <label>
                     Введіть розмір другої сторони(у px):
-                    <input required type="number" name="side2">
+                    <input required type="number" min="1" name="side2">
                 </label><br>
 
                 <label>
@@ -92,10 +92,12 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="form-container" style="margin-left: 10vw;">
         <?php if (isset($figure)): ?>
-            <h3>Фігура: <?= $_POST['figure'] ?></h3>
-            <?= $figure->createFigure() ?>
-            <h3>Периметр: <?= $figure->parameter() ?></h3>
-            <h3>Площа: <?= $figure->area() ?></h3>
+            <ul>
+                <?= $figure->createFigure() ?>
+                <li><h3>Периметр: <?= $figure->parameter() ?> px</h3></li>
+                <li><h3>Площа: <?= $figure->area() ?> px^2</h3></li>
+            </ul>
+
         <?php endif; ?>
     </div>
 </main>
